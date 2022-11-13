@@ -22,24 +22,44 @@ function onSubmitClick(event) {
   }
 }
 
+// function createPromise(position, delay) {
+//   const shouldResolve = Math.random() > 0.3;
+//   return new Promise((resolve, reject) =>
+//     setTimeout(() => {
+//       if (shouldResolve) {
+//         resolve`✅ Fulfilled promise ${position} in ${delay}ms`;
+//       } else {
+//         reject`❌ Rejected promise ${position} in ${delay}ms`;
+//       }
+//     }, delay)
+//   );
+// }
+
+// function onResolve(res) {
+//   Notiflix.Notify.success(res);
+//   console.log(res);
+// }
+// function onReject(er) {
+//   Notiflix.Notify.failure(er);
+//   console.log(er);
+// }
+
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) =>
     setTimeout(() => {
       if (shouldResolve) {
-        resolve`✅ Fulfilled promise ${position} in ${delay}ms`;
+        resolve({ position, delay });
       } else {
-        reject`❌ Rejected promise ${position} in ${delay}ms`;
+        reject({ position, delay });
       }
     }, delay)
   );
 }
 
-function onResolve(res) {
-  Notiflix.Notify.success('Please choose a date in the future');
-  console.log(res);
+function onResolve({ position, delay }) {
+  Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
 }
-function onReject(er) {
-  Notiflix.Notify.failure(er);
-  console.log(er);
+function onReject({ position, delay }) {
+  Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
 }
