@@ -26,16 +26,16 @@ const fp = flatpickr(myInput, {
     } else {
       startBtnRef.removeAttribute('disabled');
       startBtnRef.addEventListener('click', () => {
-        countDoun();
+        countDoun(selectedDates[0]);
         startBtnRef.setAttribute('disabled', true);
       });
     }
   },
 });
 
-function countDoun() {
+function countDoun(date) {
   timerId = setInterval(() => {
-    const difference = fp.selectedDates[0] - new Date();
+    const difference = date - new Date();
 
     if (difference >= 0) {
       refreshTimer(convertMs(difference));
