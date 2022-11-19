@@ -22,28 +22,6 @@ function onSubmitClick(event) {
   }
 }
 
-// function createPromise(position, delay) {
-//   const shouldResolve = Math.random() > 0.3;
-//   return new Promise((resolve, reject) =>
-//     setTimeout(() => {
-//       if (shouldResolve) {
-//         resolve`✅ Fulfilled promise ${position} in ${delay}ms`;
-//       } else {
-//         reject`❌ Rejected promise ${position} in ${delay}ms`;
-//       }
-//     }, delay)
-//   );
-// }
-
-// function onResolve(res) {
-//   Notiflix.Notify.success(res);
-//   console.log(res);
-// }
-// function onReject(er) {
-//   Notiflix.Notify.failure(er);
-//   console.log(er);
-// }
-
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) =>
